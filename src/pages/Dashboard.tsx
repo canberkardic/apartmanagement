@@ -41,65 +41,81 @@ const TitleWithIcon: React.FC<ParentCompProps> = (props) => {
 };
 
 const onChange: DatePickerProps['onChange'] = (date, dateString) => {
-    console.log ("Date",dateString);
+    console.log("Date", dateString);
 };
 
+
+const currentMonth = dayjs().startOf('month')
 
 
 function Dashboard() {
     return (
-        <div  className="flex justify-evenly p-5 gap-5 flex-wrap h-full">
+        <div className="flex justify-evenly p-5 gap-5 flex-wrap h-full">
 
-            <div className="w-80 md:hidden">
-                <div className="w-full flex justify-between items-center">
+            <div className="w-full">
+                <div className="w-full flex md:pr-10 md:pl-10  justify-between items-center">
                     <p className="text-xl m-0">Genel Özet</p>
-                    <DatePicker  defaultValue={dayjs()}  format="DD/MM/YYYY" onChange={onChange} />
+                    <DatePicker defaultValue={currentMonth} format="MM/YYYY" picker="month"/>
 
                 </div>
 
+                <div className="md:hidden m-5">
+                    <CenteredBox className="h-full">
+                        <DonutChart></DonutChart>
+                    </CenteredBox>
 
-                <CenteredBox className="h-full">
-                    <DonutChart></DonutChart>
-                </CenteredBox>
+                </div>
             </div>
 
-            <Divider></Divider>
+            <Divider className="md:hidden m-2"></Divider>
 
-            <DashboardCard titleColor={"#0891b2"} title="Net Varlık" className="hidden w-80 md:block">
+
+            <DashboardCard titleColor={"#0891b2"} title="Net Varlık" className="w-80 md:hidden">
                 <h1 className="text-xl">
                     15.000₺
                 </h1>
             </DashboardCard>
 
-            <DashboardCard titleColor={"#15803d"} title="Aylık Gelir" className="w-80" extra={<a href="#">Detay</a>}>
+
+            <DashboardCard titleColor={"#15803d"} title="Aylık Gelir" className="w-80 hidden md:block"
+                           extra={<a href="#">Detay</a>}>
                 <h1 className="text-xl">
                     4500₺
                 </h1>
             </DashboardCard>
-            <DashboardCard titleColor={"#c2410c"} title="Aylık Gider" className="w-80" extra={<a href="#">Detay</a>}>
+
+            <DashboardCard titleColor={"#c2410c"} title="Aylık Gider" className="w-80 hidden md:block"
+                           extra={<a href="#">Detay</a>}>
                 <h1 className="text-xl">
                     500₺
                 </h1>
             </DashboardCard>
 
+            <DashboardCard titleColor={"#0891b2"} title="Net Varlık" className="w-80 hidden md:block">
+                <h1 className="text-xl">
+                    15.000₺
+                </h1>
+            </DashboardCard>
+
+
             <DashboardCard
                 titleColor="#3730a3"
-               title={
-                <TitleWithIcon
-                    title="Son Yapılan İşlemler"
-                    childComp={<UnorderedListOutlined />
-                }/>
+                title={
+                    <TitleWithIcon
+                        title="Son Yapılan İşlemler"
+                        childComp={<UnorderedListOutlined/>
+                        }/>
                 } className="w-80">
                 <p className="flex gap-2  items-baseline">
-                    <CheckOutlined />
+                    <CheckOutlined/>
                     <span>Apartman Mantolaması Yapıldı kat malikleri ayarlandı</span>
                 </p>
                 <p className="flex gap-2  items-baseline">
-                    <CheckOutlined />
+                    <CheckOutlined/>
                     <span>asdsasa</span>
                 </p>
                 <p className="flex gap-2  items-center">
-                    <CheckOutlined />
+                    <CheckOutlined/>
                     <span>asdsasa</span>
                 </p>
             </DashboardCard>

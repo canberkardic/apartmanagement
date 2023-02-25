@@ -1,4 +1,4 @@
-import { Button, Tabs, TabsProps } from 'antd';
+import {Tabs, TabsProps} from 'antd';
 import TableComp from '../shared-components/table';
 
 function TabsContainer() {

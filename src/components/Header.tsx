@@ -18,7 +18,7 @@ function AppHeader() {
     return (
             <Header style={headerStyle} className="text-center; ">
                 <div  className="w-full inline-flex justify-between items-center">
-                    <h1 className="hidden md:block">
+                    <h1 className="text-xl hidden md:block">
                         ApartManagement - Apartman Yönetimi
                     </h1>
 

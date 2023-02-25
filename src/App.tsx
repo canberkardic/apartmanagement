@@ -17,7 +17,7 @@ function App() {
 
         <Layout style={{minHeight:"100vh"}}>
               <AppHeader></AppHeader>
-            <Content>
+            <Content style={{paddingInline:"10px"}}>
                 <Dashboard></Dashboard>
             </Content>
 
